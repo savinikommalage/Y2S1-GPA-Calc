@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y2S1 GPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Y2S1 GPA Calculator</h1>
+            <p>Track your grades and calculate GPA for Database Design, Statistics, Software Engineering & AI/ML</p>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="index.html" class="active">Calculator</a>
+            <a href="grading-scale.html">Grading Scale</a>
+            <a href="requirements.html">Requirements</a>
+        </nav>
+
+        <div class="main-content">
+            <!-- Database Design and Development -->
+            <div class="module-card animation-fade">
+                <div class="module-header">
+                    <div class="module-title">Database Design and Development</div>
+                    <div class="module-code">IT1150 • 4 Credits</div>
+                </div>
+                <div class="grade-inputs">
+                    <div class="input-group">
+                        <label for="ddd-midterm">Midterms (/20)</label>
+                        <input type="number" id="ddd-midterm" max="20" min="0" oninput="calculateModule('ddd')">
+                    </div>
+                    <div class="input-group">
+                        <label for="ddd-labs">Labs (/10)</label>
+                        <input type="number" id="ddd-labs" max="10" min="0" oninput="calculateModule('ddd')">
+                    </div>
+                    <div class="input-group">
+                        <label for="ddd-assignment">Assignment (/20)</label>
+                        <input type="number" id="ddd-assignment" max="20" min="0" oninput="calculateModule('ddd')">
+                    </div>
+                    <div class="input-group">
+                        <label for="ddd-final">Final Exam (/50)</label>
+                        <input type="number" id="ddd-final" max="50" min="0" oninput="calculateModule('ddd')">
+                    </div>
+                </div>
+                <div class="results">
+                    <div class="result-item">
+                        <div class="result-label">CA Marks</div>
+                        <div class="result-value" id="ddd-ca">0/50</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Final</div>
+                        <div class="result-value" id="ddd-final-display">0/50</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Total</div>
+                        <div class="result-value" id="ddd-total">0/100</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Grade</div>
+                        <div class="result-value" id="ddd-grade">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Status</div>
+                        <div class="pass-status pending" id="ddd-status">Pending</div>
+                    </div>
+                </div>
+                <div class="requirements">
+                    <h4>Pass Requirements:</h4>
+                    <p>Must obtain 45% in CA and overall mark qualifying for "C" grade or above (45%)</p>
+                </div>
+            </div>
+
+            <!-- Probability and Statistics -->
+            <div class="module-card animation-fade">
+                <div class="module-header">
+                    <div class="module-title">Probability and Statistics</div>
+                    <div class="module-code">IT2120 • 4 Credits</div>
+                </div>
+                <div class="grade-inputs">
+                    <div class="input-group">
+                        <label for="ps-midterm">Midterms (/20)</label>
+                        <input type="number" id="ps-midterm" max="20" min="0" oninput="calculateModule('ps')">
+                    </div>
+                    <div class="input-group">
+                        <label for="ps-labs">Labs (/10)</label>
+                        <input type="number" id="ps-labs" max="10" min="0" oninput="calculateModule('ps')">
+                    </div>
+                    <div class="input-group">
+                        <label for="ps-labtest">Lab Test (/10)</label>
+                        <input type="number" id="ps-labtest" max="10" min="0" oninput="calculateModule('ps')">
+                    </div>
+                    <div class="input-group">
+                        <label for="ps-final">Final Exam (/60)</label>
+                        <input type="number" id="ps-final" max="60" min="0" oninput="calculateModule('ps')">
+                    </div>
+                </div>
+                <div class="results">
+                    <div class="result-item">
+                        <div class="result-label">CA Marks</div>
+                        <div class="result-value" id="ps-ca">0/40</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Final</div>
+                        <div class="result-value" id="ps-final-display">0/60</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Total</div>
+                        <div class="result-value" id="ps-total">0/100</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Grade</div>
+                        <div class="result-value" id="ps-grade">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Status</div>
+                        <div class="pass-status pending" id="ps-status">Pending</div>
+                    </div>
+                </div>
+                <div class="requirements">
+                    <h4>Pass Requirements:</h4>
+                    <p>Must obtain 50% in CA and overall mark qualifying for "C" grade or above (45%)</p>
+                </div>
+            </div>
+
+            <!-- Software Engineering -->
+            <div class="module-card animation-fade">
+                <div class="module-header">
+                    <div class="module-title">Software Engineering</div>
+                    <div class="module-code">SE2030 • 4 Credits</div>
+                </div>
+                <div class="grade-inputs">
+                    <div class="input-group">
+                        <label for="se-midterm">Midterms (/20)</label>
+                        <input type="number" id="se-midterm" max="20" min="0" oninput="calculateModule('se')">
+                    </div>
+                    <div class="input-group">
+                        <label for="se-labs">Labs (/10)</label>
+                        <input type="number" id="se-labs" max="10" min="0" oninput="calculateModule('se')">
+                    </div>
+                    <div class="input-group">
+                        <label for="se-quiz">Quiz (/10)</label>
+                        <input type="number" id="se-quiz" max="10" min="0" oninput="calculateModule('se')">
+                    </div>
+                    <div class="input-group">
+                        <label for="se-group">Group Project (/10)</label>
+                        <input type="number" id="se-group" max="10" min="0" oninput="calculateModule('se')">
+                    </div>
+                    <div class="input-group">
+                        <label for="se-final">Final Exam (/50)</label>
+                        <input type="number" id="se-final" max="50" min="0" oninput="calculateModule('se')">
+                    </div>
+                </div>
+                <div class="results">
+                    <div class="result-item">
+                        <div class="result-label">CA Marks</div>
+                        <div class="result-value" id="se-ca">0/50</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Final</div>
+                        <div class="result-value" id="se-final-display">0/50</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Total</div>
+                        <div class="result-value" id="se-total">0/100</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Grade</div>
+                        <div class="result-value" id="se-grade">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Status</div>
+                        <div class="pass-status pending" id="se-status">Pending</div>
+                    </div>
+                </div>
+                <div class="requirements">
+                    <h4>Pass Requirements:</h4>
+                    <p>Must obtain 45% in CA and overall mark qualifying for "C" grade or above (45%)</p>
+                </div>
+            </div>
+
+            <!-- AI/ML -->
+            <div class="module-card animation-fade">
+                <div class="module-header">
+                    <div class="module-title">Artificial Intelligence and Machine Learning</div>
+                    <div class="module-code">IT2011 • 4 Credits</div>
+                </div>
+                <div class="grade-inputs">
+                    <div class="input-group">
+                        <label for="aiml-midterm">Midterms (/20)</label>
+                        <input type="number" id="aiml-midterm" max="20" min="0" oninput="calculateModule('aiml')">
+                    </div>
+                    <div class="input-group">
+                        <label for="aiml-labs">Labs (/10)</label>
+                        <input type="number" id="aiml-labs" max="10" min="0" oninput="calculateModule('aiml')">
+                    </div>
+                    <div class="input-group">
+                        <label for="aiml-assignment1">Assignment 1 (/15)</label>
+                        <input type="number" id="aiml-assignment1" max="15" min="0" oninput="calculateModule('aiml')">
+                    </div>
+                    <div class="input-group">
+                        <label for="aiml-assignment2">Assignment 2 (/15)</label>
+                        <input type="number" id="aiml-assignment2" max="15" min="0" oninput="calculateModule('aiml')">
+                    </div>
+                    <div class="input-group">
+                        <label for="aiml-final">Final Exam (/50)</label>
+                        <input type="number" id="aiml-final" max="50" min="0" oninput="calculateModule('aiml')">
+                    </div>
+                </div>
+                <div class="results">
+                    <div class="result-item">
+                        <div class="result-label">CA Marks</div>
+                        <div class="result-value" id="aiml-ca">0/50</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Final</div>
+                        <div class="result-value" id="aiml-final-display">0/50</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Total</div>
+                        <div class="result-value" id="aiml-total">0/100</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Grade</div>
+                        <div class="result-value" id="aiml-grade">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Status</div>
+                        <div class="pass-status pending" id="aiml-status">Pending</div>
+                    </div>
+                </div>
+                <div class="requirements">
+                    <h4>Pass Requirements:</h4>
+                    <p>Must obtain 45% in CA and overall mark qualifying for "C" grade or above (45%)</p>
+                </div>
+            </div>
+
+            <!-- GPA Summary -->
+            <div class="gpa-summary">
+                <h2>📈 Semester GPA</h2>
+                <div class="gpa-value" id="gpa-display">0.00</div>
+                <p>Total Credit Points: <span id="total-credits">16</span></p>
+                <p>Completed Modules: <span id="completed-modules">0/4</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Module data storage
+        let modules = {
+            ddd: { caTotal: 50, finalTotal: 50, caMin: 45, overallMin: 45 },
+            ps: { caTotal: 40, finalTotal: 60, caMin: 50, overallMin: 45 },
+            se: { caTotal: 50, finalTotal: 50, caMin: 45, overallMin: 45 },
+            aiml: { caTotal: 50, finalTotal: 50, caMin: 45, overallMin: 45 }
+        };
+
+        // Grade calculation functions
+        function getGradeFromPercentage(percentage) {
+            if (percentage >= 90) return { grade: 'A+', points: 4.0 };
+            if (percentage >= 80) return { grade: 'A', points: 4.0 };
+            if (percentage >= 75) return { grade: 'A-', points: 3.7 };
+            if (percentage >= 70) return { grade: 'B+', points: 3.3 };
+            if (percentage >= 65) return { grade: 'B', points: 3.0 };
+            if (percentage >= 60) return { grade: 'B-', points: 2.7 };
+            if (percentage >= 55) return { grade: 'C+', points: 2.3 };
+            if (percentage >= 45) return { grade: 'C', points: 2.0 };
+            if (percentage >= 40) return { grade: 'C-', points: 1.7 };
+            if (percentage >= 35) return { grade: 'D+', points: 1.3 };
+            if (percentage >= 30) return { grade: 'D', points: 1.0 };
+            return { grade: 'E', points: 0.0 };
+        }
+
+        function calculateModule(moduleCode) {
+            let caMarks = 0;
+            let finalMarks = 0;
+
+            // Calculate CA marks based on module
+            switch(moduleCode) {
+                case 'ddd':
+                    caMarks = (parseFloat(document.getElementById('ddd-midterm').value) || 0) +
+                             (parseFloat(document.getElementById('ddd-labs').value) || 0) +
+                             (parseFloat(document.getElementById('ddd-assignment').value) || 0);
+                    finalMarks = parseFloat(document.getElementById('ddd-final').value) || 0;
+                    break;
+                case 'ps':
+                    caMarks = (parseFloat(document.getElementById('ps-midterm').value) || 0) +
+                             (parseFloat(document.getElementById('ps-labs').value) || 0) +
+                             (parseFloat(document.getElementById('ps-labtest').value) || 0);
+                    finalMarks = parseFloat(document.getElementById('ps-final').value) || 0;
+                    break;
+                case 'se':
+                    caMarks = (parseFloat(document.getElementById('se-midterm').value) || 0) +
+                             (parseFloat(document.getElementById('se-labs').value) || 0) +
+                             (parseFloat(document.getElementById('se-quiz').value) || 0) +
+                             (parseFloat(document.getElementById('se-group').value) || 0);
+                    finalMarks = parseFloat(document.getElementById('se-final').value) || 0;
+                    break;
+                case 'aiml':
+                    caMarks = (parseFloat(document.getElementById('aiml-midterm').value) || 0) +
+                             (parseFloat(document.getElementById('aiml-labs').value) || 0) +
+                             (parseFloat(document.getElementById('aiml-assignment1').value) || 0) +
+                             (parseFloat(document.getElementById('aiml-assignment2').value) || 0);
+                    finalMarks = parseFloat(document.getElementById('aiml-final').value) || 0;
+                    break;
+            }
+
+            const moduleData = modules[moduleCode];
+            const totalMarks = caMarks + finalMarks;
+            const totalPercentage = totalMarks;
+            const caPercentage = (caMarks / moduleData.caTotal) * 100;
+            
+            const gradeInfo = getGradeFromPercentage(totalPercentage);
+            
+            // Update display
+            document.getElementById(`${moduleCode}-ca`).textContent = `${caMarks}/${moduleData.caTotal}`;
+            document.getElementById(`${moduleCode}-final-display`).textContent = `${finalMarks}/${moduleData.finalTotal}`;
+            document.getElementById(`${moduleCode}-total`).textContent = `${totalMarks}/100`;
+            document.getElementById(`${moduleCode}-grade`).textContent = gradeInfo.grade;
+            
+            // Determine pass/fail status
+            const statusElement = document.getElementById(`${moduleCode}-status`);
+            const caPass = caPercentage >= moduleData.caMin;
+            const overallPass = totalPercentage >= moduleData.overallMin;
+            
+            if (totalMarks === 0) {
+                statusElement.textContent = 'Pending';
+                statusElement.className = 'pass-status pending';
+            } else if (caPass && overallPass) {
+                statusElement.textContent = 'Pass';
+                statusElement.className = 'pass-status pass';
+            } else {
+                statusElement.textContent = 'Fail';
+                statusElement.className = 'pass-status fail';
+                if (!caPass) {
+                    statusElement.textContent += ` (CA: ${caPercentage.toFixed(1)}%)`;
+                }
+            }
+            
+            // Update module card border based on status
+            const moduleCard = statusElement.closest('.module-card');
+            moduleCard.classList.remove('success-state', 'warning-state', 'error-state');
+            
+            if (totalMarks === 0) {
+                // Keep default state
+            } else if (caPass && overallPass) {
+                moduleCard.classList.add('success-state');
+            } else {
+                moduleCard.classList.add('error-state');
+            }
+            
+            calculateGPA();
+        }
+
+        function calculateGPA() {
+            const modulesList = ['ddd', 'ps', 'se', 'aiml'];
+            let totalPoints = 0;
+            let totalCredits = 0;
+            let completedModules = 0;
+            
+            modulesList.forEach(moduleCode => {
+                const gradeElement = document.getElementById(`${moduleCode}-grade`);
+                const grade = gradeElement.textContent;
+                
+                if (grade !== '-') {
+                    const totalElement = document.getElementById(`${moduleCode}-total`);
+                    const totalText = totalElement.textContent;
+                    const totalMarks = parseFloat(totalText.split('/')[0]);
+                    
+                    if (totalMarks > 0) {
+                        const gradeInfo = getGradeFromPercentage(totalMarks);
+                        totalPoints += gradeInfo.points * 4; // 4 credits per module
+                        totalCredits += 4;
+                        completedModules++;
+                    }
+                }
+            });
+            
+            const gpa = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : '0.00';
+            document.getElementById('gpa-display').textContent = gpa;
+            document.getElementById('completed-modules').textContent = `${completedModules}/4`;
+            
+            // Update GPA color based on performance
+            const gpaElement = document.getElementById('gpa-display');
+            const gpaValue = parseFloat(gpa);
+            
+            if (gpaValue >= 3.7) {
+                gpaElement.style.color = '#27ae60';
+            } else if (gpaValue >= 3.0) {
+                gpaElement.style.color = '#f39c12';
+            } else if (gpaValue >= 2.0) {
+                gpaElement.style.color = '#e67e22';
+            } else {
+                gpaElement.style.color = '#e74c3c';
+            }
+        }
+
+        // Load saved data on page load
+        window.addEventListener('load', function() {
+            const modulesList = ['ddd', 'ps', 'se', 'aiml'];
+            modulesList.forEach(moduleCode => {
+                calculateModule(moduleCode);
+            });
+        });
+
+        // Add some visual feedback for inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'translateY(-2px)';
+                    this.parentElement.style.transition = 'transform 0.3s ease';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

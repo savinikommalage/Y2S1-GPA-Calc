@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading Scale - Y2S1 GPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Grading Scale</h1>
+            <p>Complete grading scale and point system for Y2S1 modules</p>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="index.html">Calculator</a>
+            <a href="grading-scale.html" class="active">Grading Scale</a>
+            <a href="requirements.html">Requirements</a>
+        </nav>
+
+        <div class="main-content">
+            
+
+            <div class="highlight-box">
+                <h3>🎯 GPA Calculation Formula</h3>
+                <p><strong>GPA = (Sum of Grade Points × Credits) ÷ Total Credits</strong></p>
+                </div>
+
+            <div class="grade-scale">
+                <div class="scale-title">📈 Complete Grading Scale</div>
+                <div class="scale-grid">
+                    <div class="scale-item">
+                        <div class="scale-grade">A+</div>
+                        <div class="scale-points">4.0 Points</div>
+                        <div class="scale-range">90-100%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">A</div>
+                        <div class="scale-points">4.0 Points</div>
+                        <div class="scale-range">80-89%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">A-</div>
+                        <div class="scale-points">3.7 Points</div>
+                        <div class="scale-range">75-79%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">B+</div>
+                        <div class="scale-points">3.3 Points</div>
+                        <div class="scale-range">70-74%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">B</div>
+                        <div class="scale-points">3.0 Points</div>
+                        <div class="scale-range">65-69%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">B-</div>
+                        <div class="scale-points">2.7 Points</div>
+                        <div class="scale-range">60-64%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">C+</div>
+                        <div class="scale-points">2.3 Points</div>
+                        <div class="scale-range">55-59%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">C</div>
+                        <div class="scale-points">2.0 Points</div>
+                        <div class="scale-range">45-54%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">C-</div>
+                        <div class="scale-points">1.7 Points</div>
+                        <div class="scale-range">40-44%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">D+</div>
+                        <div class="scale-points">1.3 Points</div>
+                        <div class="scale-range">35-39%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">D</div>
+                        <div class="scale-points">1.0 Points</div>
+                        <div class="scale-range">30-34%</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-grade">E</div>
+                        <div class="scale-points">0.0 Points</div>
+                        <div class="scale-range">0-29%</div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+           
+
+            
+        </div>
+    </div>
+
+    <script>
+        // Add hover effects for scale items
+        document.addEventListener('DOMContentLoaded', function() {
+            const scaleItems = document.querySelectorAll('.scale-item');
+            
+            scaleItems.forEach(item => {
+                const grade = item.querySelector('.scale-grade').textContent;
+                const points = parseFloat(item.querySelector('.scale-points').textContent);
+                
+                // Color code based on grade level
+                if (points >= 3.7) {
+                    item.style.borderLeft = '4px solid #27ae60';
+                } else if (points >= 3.0) {
+                    item.style.borderLeft = '4px solid #3498db';
+                } else if (points >= 2.0) {
+                    item.style.borderLeft = '4px solid #f39c12';
+                } else {
+                    item.style.borderLeft = '4px solid #e74c3c';
+                }
+                
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
